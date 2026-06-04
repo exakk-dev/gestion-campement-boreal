@@ -3,7 +3,7 @@ export const brand = {
   logos: {
     /** Hexagone — navbar compacte, footer */
     mark: {
-      src: "/logos/logo-dark.png",
+      src: "/logos/light-dark-2.png",
       width: 192,
       height: 240,
     },
