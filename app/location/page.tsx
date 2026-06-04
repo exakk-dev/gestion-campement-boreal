@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function LocationPage() {
   return (
     <main className="bg-boreal-mist">
-      <section className="border-b border-boreal-silver-mid/30 bg-boreal-ink pt-40 pb-16 sm:pt-44 md:pb-20 md:pt-48 lg:pt-52">
+      <section className="border-b border-boreal-silver-mid/30 bg-boreal-ink pt-32 pb-16 sm:pt-36 md:pb-20 md:pt-40">
         <div className="mx-auto max-w-[1400px] px-6 md:px-10">
           <Reveal variant="fade" delay={0}>
             <p className="text-xs font-medium uppercase tracking-[0.25em] text-boreal-silver-mid">

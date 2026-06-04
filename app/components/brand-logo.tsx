@@ -2,25 +2,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { brand } from "../lib/brand";
 
-const HEADER_LOGO = {
-  width: 192,
-  height: 240,
-  expanded:
-    "h-[5.5rem] w-auto sm:h-[6.5rem] md:h-32 lg:h-[8.5rem]",
-  compact: "h-11 w-auto sm:h-12 md:h-14",
-} as const;
+const { mark, text } = brand.logos;
 
-const sizes = {
-  header: HEADER_LOGO,
-  footer: {
-    width: 176,
-    height: 220,
-    className: "h-28 w-auto sm:h-32 md:h-36",
-  },
+const headerTextSizes = {
+  expanded:
+    "h-9 w-auto max-w-[11rem] sm:h-10 sm:max-w-[13rem] md:h-11 md:max-w-[15rem]",
+  compact: "h-7 w-auto max-w-[8.5rem] sm:h-8 sm:max-w-[10rem]",
 } as const;
 
 type BrandLogoProps = {
-  variant?: keyof typeof sizes;
+  variant?: "header" | "footer";
   linked?: boolean;
   priority?: boolean;
   /** Navbar : logo réduit après scroll */
@@ -33,43 +24,23 @@ export function BrandLogo({
   priority = false,
   compact = false,
 }: BrandLogoProps) {
-  if (variant === "header") {
-    const { width, height, expanded, compact: compactClass } = HEADER_LOGO;
-    const image = (
-      <Image
-        src="/logos/logo-dark.png"
-        alt={brand.name}
-        width={width}
-        height={height}
-        className={`object-contain object-left transition-[height] duration-500 ease-out ${
-          compact ? compactClass : expanded
-        }`}
-        priority={priority}
-      />
-    );
-
-    if (!linked) return image;
-
-    return (
-      <Link
-        href="/"
-        className="inline-flex shrink-0 items-center transition-opacity duration-300 hover:opacity-90"
-      >
-        {image}
-      </Link>
-    );
-  }
-
-  const { width, height, className } = sizes.footer;
+  const isHeader = variant === "header";
+  const asset = isHeader ? text : mark;
 
   const image = (
     <Image
-      src="/logos/logo-dark.png"
+      src={asset.src}
       alt={brand.name}
-      width={width}
-      height={height}
-      className={`${className} object-contain object-left`}
+      width={asset.width}
+      height={asset.height}
       priority={priority}
+      className={
+        isHeader
+          ? `object-contain object-left transition-[height,max-width] duration-500 ease-out ${
+              compact ? headerTextSizes.compact : headerTextSizes.expanded
+            }`
+          : "h-28 w-auto max-w-[10rem] object-contain object-left sm:h-32 sm:max-w-[11rem] md:h-36 md:max-w-[12rem]"
+      }
     />
   );
 

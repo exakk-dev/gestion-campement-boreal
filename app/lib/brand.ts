@@ -1,5 +1,19 @@
 export const brand = {
   name: "Gestion Campement Boreal",
+  logos: {
+    /** Hexagone — navbar compacte, footer */
+    mark: {
+      src: "/logos/logo-dark.png",
+      width: 192,
+      height: 240,
+    },
+    /** Typo blanche — hero, navbar */
+    text: {
+      src: "/logos/logo-text.png",
+      width: 560,
+      height: 160,
+    },
+  },
   email: "info@gestioncampementboreal.ca",
   tagline: "Location de roulottes de chantier, bureaux et unités aménagées",
   phone: {

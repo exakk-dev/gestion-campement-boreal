@@ -6,7 +6,7 @@ export function Hero() {
     <section className="relative min-h-[92svh] overflow-hidden bg-boreal-ink">
       <HeroMedia />
 
-      <div className="relative mx-auto flex min-h-[92svh] max-w-[1400px] flex-col justify-end px-6 pb-20 pt-40 sm:pt-44 md:px-10 md:pb-28 md:pt-48 lg:pt-52">
+      <div className="relative mx-auto flex min-h-[92svh] max-w-[1400px] flex-col justify-end px-6 pb-20 pt-32 sm:pt-36 md:px-10 md:pb-28 md:pt-40">
         <p className="hero-enter hero-enter-1 mb-4 max-w-md text-xs font-medium uppercase tracking-[0.25em] text-boreal-silver-mid">
           Location premium · Québec
         </p>
